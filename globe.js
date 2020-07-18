@@ -1,25 +1,24 @@
 var globe = function(viewer){
 
     var G = viewer;
-
     function view2D() {
         for (var e, t, n, a, r = G.canvas.width / 2, o = G.canvas.height / 2, s = r, c = 0; c < G.canvas.height; c++)
-            if (e = i(s, c)) {
+            if (e = cesiumWindowToWGS84(s, c)) {
                 e = e[1];
                 break
             }
         for (var s = r, c = G.canvas.height - 1; c >= 0; c--)
-            if (t = i(s, c)) {
+            if (t = cesiumWindowToWGS84(s, c)) {
                 t = t[1];
                 break
             }
         for (var s = 0, c = o; s < G.canvas.width; s++)
-            if (a = i(s, c)) {
+            if (a = cesiumWindowToWGS84(s, c)) {
                 a = a[0];
                 break
             }
         for (var s = G.canvas.width, c = o; s >= 0; s--)
-            if (n = i(s, c)) {
+            if (n = cesiumWindowToWGS84(s, c)) {
                 n = n[0];
                 break
             }

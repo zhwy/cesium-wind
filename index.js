@@ -54,14 +54,15 @@ $(function(){
         $('#wind')[0].width = width;
         $('#wind')[0].height = height;
         windy.stop();
-        setTimeout(function(){
-            started = windy.start(
-                [[0,0],[width, height]],
-                width,
-                height
-            );
-            $('#wind').show();
-        },200);
+        // setTimeout(function(){
+            
+        // },200);
+        started = windy.start(
+            [[0,0],[width, height]],
+            width,
+            height
+        );
+        $('#wind').show();
     }
     
     
