@@ -1,12 +1,12 @@
 # Cesium-wind 🚀
-A demo of wind on cesium globe 🌏
+A demo of wind on cesium globe 🌏，here is 👉 [**Live Demo**](https://vensing.github.io/cesium-wind)
 
 ![cesium-wind.png](https://raw.githubusercontent.com/vensing/cesium-wind/master/data/cesium-wind.png)
 
 
 ### 📑关于
 
-本项目基于[https://github.com/Esri/wind-js](https://github.com/Esri/wind-js) 移植到 Cesium。在二维、三维下均可正常运行。
+本项目基于 [https://github.com/Esri/wind-js](https://github.com/Esri/wind-js) 移植到 Cesium。在二维、三维下均可正常运行。
 
 有关风场动画的运行原理和相关算法请参考 [https://github.com/Esri/wind-js](https://github.com/Esri/wind-js) 和 [https://github.com/cambecc/earth](https://github.com/cambecc/earth) 这两个项目。
 
@@ -16,13 +16,13 @@ A demo of wind on cesium globe 🌏
 git clone https://github.com/vensing/cesium-wind
 ```
 
-使用 vscode 打开本项目，安装 `Live Server` 插件,选中 index.html 右键 Open with live server，即自动跳转到默认浏览器加载。
+使用 vscode 打开本项目，安装 `Live Server` 插件，选中 index.html 右键 Open with live server，即自动跳转到默认浏览器加载。
 
 或者也可以放到 web 服务器中，作为静态页面加载。
 
 ### 🚥注意事项
 
-1. 风场动画基于 canvas 实现，因此您必须在添加一层画布，画布层叠于 Cesium 地图之上，且设置  `pointer-events: none;` 禁用画布拖动事件否则无法拖拽 Cesium 地图：
+1. 风场动画基于 canvas 实现，因此您必须再添加一层画布，画布层叠于 Cesium 地图之上，且设置  `pointer-events: none;` 禁用画布拖动事件否则无法拖拽 Cesium 地图：
     ```css
     #wind{
         position: absolute;
