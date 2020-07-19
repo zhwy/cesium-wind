@@ -5,20 +5,24 @@ var viewer;
 $(function(){
 
     function initMap(target){
+        var osmMap = new Cesium.OpenStreetMapImageryProvider({
+            url : 'https://a.tile.openstreetmap.org/'
+        })
 
         var viewer = new Cesium.Viewer(target, {
             homeButton:true,
-            animation : false,
-            timeline : false,
-            infoBox : false,
-            selectionIndicator : false,
-            baseLayerPicker :true,
-            terrainProviderViewModels : [],
-            geocoder : false,
-            vrButton : false,
-            navigationHelpButton : false,
-            mapProjection : new Cesium.WebMercatorProjection(),
-            sceneMode : Cesium.SceneMode.SCENE3D,
+            animation: false,
+            timeline: false,
+            infoBox: false,
+            selectionIndicator: false,
+            baseLayerPicker: true,
+            imageryProvider: osmMap,
+            terrainProviderViewModels: [],
+            geocoder: false,
+            vrButton: false,
+            navigationHelpButton: false,
+            mapProjection: new Cesium.WebMercatorProjection(),
+            sceneMode: Cesium.SceneMode.SCENE3D,
         });
 
         return viewer;
