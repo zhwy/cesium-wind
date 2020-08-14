@@ -1,4 +1,4 @@
-var globe = function(viewer){
+var globe = function (viewer) {
 
     var G = viewer;
     function view2D() {
@@ -32,15 +32,15 @@ var globe = function(viewer){
 
     function viewRect() {
         var east, west, north, south;
-        var camera = G.scene.camera, r = (G.scene.mapProjection.ellipsoid,camera.computeViewRectangle(G.scene.globe.ellipsoid));
+        var camera = G.scene.camera, r = (G.scene.mapProjection.ellipsoid, camera.computeViewRectangle(G.scene.globe.ellipsoid));
         return r ? (east = 360 * r.east / 2 / Math.PI,
             west = 360 * r.west / 2 / Math.PI,
             north = 360 * r.north / 2 / Math.PI,
             south = 360 * r.south / 2 / Math.PI) : (r = view2D(),
-        east = r.east,
-        west = r.west,
-        north = r.north,
-        south = r.south),
+                east = r.east,
+                west = r.west,
+                north = r.north,
+                south = r.south),
         {
             east: east,
             west: west,

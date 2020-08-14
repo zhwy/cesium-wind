@@ -13,7 +13,7 @@ A demo of wind on cesium globe 🌏，here is 👉 [**Live Demo**](https://vensi
 ### 💻如何运行
 
 ```
-git clone https://github.com/vensing/cesium-wind
+git clone https://github.com/vensing/cesium-wind.git
 ```
 
 使用 vscode 打开本项目，安装 `Live Server` 插件，选中 index.html 右键 Open with live server，即自动跳转到默认浏览器加载。

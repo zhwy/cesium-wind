@@ -2,15 +2,15 @@ var windy;
 var started = false;
 var viewer;
 
-$(function(){
+$(function () {
 
-    function initMap(target){
+    function initMap(target) {
         var osmMap = new Cesium.OpenStreetMapImageryProvider({
-            url : 'https://a.tile.openstreetmap.org/'
+            url: 'https://a.tile.openstreetmap.org/'
         })
 
         var viewer = new Cesium.Viewer(target, {
-            homeButton:true,
+            homeButton: true,
             animation: false,
             timeline: false,
             infoBox: false,
@@ -30,7 +30,7 @@ $(function(){
 
     viewer = initMap("cesiumContainer");
     window.cesiumGlobe = globe(viewer);
-    viewer._cesiumWidget._creditContainer.style.display="none";
+    viewer._cesiumWidget._creditContainer.style.display = "none";
 
     $('#wind')[0].width = parseInt(viewer.canvas.width);
     $('#wind')[0].height = parseInt(viewer.canvas.height);
@@ -41,47 +41,47 @@ $(function(){
             url: "data/gfs.json",
             dataType: "json",
             success: function (response) {
-            	 windy = new Windy({ canvas: document.getElementById("wind"), data: response });
-                 redraw();
+                windy = new Windy({ canvas: document.getElementById("wind"), data: response });
+                redraw();
             },
             error: function (errorMsg) {
-                alert("请求数据失败1!");
+                alert("请求数据失败!");
             }
         });
     }
     Draw();
 
 
-    function redraw(){
+    function redraw() {
         var width = viewer.canvas.width;
         var height = viewer.canvas.height;
         $('#wind')[0].width = width;
         $('#wind')[0].height = height;
         windy.stop();
         // setTimeout(function(){
-            
+
         // },200);
         started = windy.start(
-            [[0,0],[width, height]],
+            [[0, 0], [width, height]],
             width,
             height
         );
         $('#wind').show();
     }
-    
-    
-    viewer.camera.moveStart.addEventListener(function(){
-    	console.log("move start...");
-    	$('#wind').hide();
-    	if(!!windy && started){
-    		windy.stop();
-    	}
+
+
+    viewer.camera.moveStart.addEventListener(function () {
+        console.log("move start...");
+        $('#wind').hide();
+        if (!!windy && started) {
+            windy.stop();
+        }
     });
-    viewer.camera.moveEnd.addEventListener(function(){
-    	console.log("move end...");
-    	$('#wind').hide();
-    	if(!!windy && started){
-    		redraw();
-    	}
+    viewer.camera.moveEnd.addEventListener(function () {
+        console.log("move end...");
+        $('#wind').hide();
+        if (!!windy && started) {
+            redraw();
+        }
     });
 });
