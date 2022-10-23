@@ -7,7 +7,7 @@ $(function () {
     function initMap(target) {
         var osmMap = new Cesium.OpenStreetMapImageryProvider({
             url: 'https://a.tile.openstreetmap.org/'
-        })
+        });
 
         var viewer = new Cesium.Viewer(target, {
             homeButton: true,
@@ -58,15 +58,16 @@ $(function () {
         $('#wind')[0].width = width;
         $('#wind')[0].height = height;
         windy.stop();
-        // setTimeout(function(){
+        // setTimeout(function () {
 
-        // },200);
+        // }, 200);
         started = windy.start(
             [[0, 0], [width, height]],
             width,
             height
         );
         $('#wind').show();
+
     }
 
 
